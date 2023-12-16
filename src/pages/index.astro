@@ -10,6 +10,11 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 
 const cactusTech: Array<{ title: string; desc: string; href: string }> = [
 	{
+		title: "Astro Cactus",
+		desc: "The theme I'm using.",
+		href: "https://astro-cactus.chriswilliams.dev/",
+	},
+	{
 		title: "Astro",
 		desc: "Build fast websites, faster.",
 		href: "https://astro.build",
@@ -56,9 +61,11 @@ const cactusTech: Array<{ title: string; desc: string; href: string }> = [
 	<section>
 		<h1 class="title mb-6">Hello World!</h1>
 		<p class="mb-4">
-			Hi, I’m a theme for Astro, an example of how you can use this starter to create a personal
-			blog. If you want to know more about how you can customise me, add more posts, and make it
-			your own, click on the github icon link below and it will take you to my repo.
+			Hi, I'm Jacob Root, an aspiring software enginerr.
+
+			I'm currently studying CS at UCSD.
+
+			See my resume <a href="https://drive.google.com/file/d/1n2IKlcvIC8Adx8j-zafhYhAoJh66i9RS/view?usp=sharing" class="cactus-link" data-astro-prefetch>here</a>
 		</p>
 		<SocialList />
 	</section>
@@ -76,6 +83,9 @@ const cactusTech: Array<{ title: string; desc: string; href: string }> = [
 	</section>
 	<section class="mt-16">
 		<h2 class="title mb-4 text-xl">Technologies</h2>
+		<p class="mb-4">
+			Theme made by Chris Williams, click the Astro Cactus link to learn more
+		</p>
 		<ul class="space-y-4 sm:space-y-2">
 			{
 				cactusTech.map(({ href, title, desc }) => (
