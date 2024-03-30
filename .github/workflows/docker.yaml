@@ -25,7 +25,12 @@ jobs:
         with:
           push: true
           tags: harbor.rooty.dev/cluster/rooty-dev:latest
-      - uses: azure/setup-kubectl@v3
+      - 
+        name: Setup kubectl
+        uses: azure/setup-kubectl@v3
         id: install
+      - 
+        name: Restart rooty.dev deploy
+        run: kubectl rollout restart deployment personal-site-deployment --namespace personal-site
       
       
