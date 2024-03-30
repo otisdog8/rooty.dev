@@ -7,7 +7,7 @@ on:
 
 jobs:
   docker:
-    runs-on: rooty-dev-runner
+    runs-on: rooty-dev-scale-set
     steps:
       -
         name: Set up Docker Buildx
