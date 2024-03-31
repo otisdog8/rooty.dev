@@ -1,0 +1,36 @@
+name: build
+
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  docker:
+    runs-on: rooty-dev-scale-set
+    steps:
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      -
+        name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          registry: harbor.rooty.dev
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_TOKEN }}
+      -
+        name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          push: true
+          tags: harbor.rooty.dev/cluster/rooty-dev:latest
+      - 
+        name: Setup kubectl
+        uses: azure/setup-kubectl@v3
+        id: install
+      - 
+        name: Restart rooty.dev deploy
+        run: kubectl rollout restart deployment personal-site-deployment --namespace personal-site
+      
+      
