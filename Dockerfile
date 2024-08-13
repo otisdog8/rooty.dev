@@ -6,7 +6,7 @@ RUN corepack enable
 
 WORKDIR /app
 COPY . .
-RUN pnpm fetch --prod
+RUN pnpm install
 RUN pnpm run build
 
 FROM httpd:2.4 AS runtime
